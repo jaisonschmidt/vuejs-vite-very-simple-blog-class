@@ -4,10 +4,13 @@ import Home from './views/Home.vue';
 
 import { defineAsyncComponent } from 'vue';
 
+import Loading from './components/Loading.vue';
+import ErrorComponent from './components/Error.vue';
+
 const Post = defineAsyncComponent({
   loader: () => import('./views/Post.vue'),
-  loadingComponent: () => import('./components/Loading.vue'),
-  errorComponent: () => import('./components/Error.vue'),
+  loadingComponent: Loading,
+  errorComponent: ErrorComponent,
   delay: 10, // tempo para mostrar o loading (em ms)
   timeout: 5000, // tempo limite para abortar o carregamento
 });
